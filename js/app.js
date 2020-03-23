@@ -21,11 +21,20 @@ formulario.addEventListener('submit', function(e) {
     //leer el año selleccionado del select
     const anio = document.getElementById('anio');
     const anioSeleccionado = anio.options[anio.selectedIndex].value;
-    console.log(`anio seleccionado: ${anioSeleccionado}`);
 
     const tipo = document.querySelector('input[name="tipo"]:checked').value;
 
-    console.log(`Radio: ${tipo}`);
+    //Crear instancia de Interfaz
+    const interfaz = new Interfaz();
+
+    //Revisar que los campos no esten vacios
+    if(marcaSeleccionado === '' || anioSeleccionado === '' || tipo === '') {
+        console.log('Faltan Datos');
+        
+    } else {
+        console.log('Todo Correcto');
+        
+    }
     
 });
 
