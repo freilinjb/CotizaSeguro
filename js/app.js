@@ -8,6 +8,17 @@ function Saludar(marca, anio, tipo) {
 function Interfaz() {}
 
 
+//EventListener
+const formulario = document.getElementById('cotizar-seguro');
+
+formulario.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    console.log('Precionado');
+
+});
+
+
 const max = new Date().getFullYear(),
       min  = max - 20; 
 
