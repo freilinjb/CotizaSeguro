@@ -13,14 +13,18 @@ Interfaz.prototype.mostrarError = function(Mensaje, tipo) {
     const div = document.createElement('div');
 
     if(tipo == 'error') {
-        div.classList = 'error';
+        div.classList.add('mensaje','error');
 
     } else {
-        div.classList = 'correcto';
+        div.classList.add('mensaje','correcto');
     }
 
     div.innerHTML = `${Mensaje}`;
     formulario.insertBefore(div, document.querySelector('.form-group'));
+
+    setTimeout(function() {
+        document.querySelector('.mensaje').remove();
+    },3000);
 
 }
 
