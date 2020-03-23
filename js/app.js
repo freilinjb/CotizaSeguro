@@ -63,7 +63,9 @@ formulario.addEventListener('submit', function(e) {
 
         const seguro = new Seguro(marcaSeleccionado,anioSeleccionado,tipo);
 
-        console.log(seguro);
+        //Cotizar el seguro
+        const cantidad = seguro.cotiza
+
         
     }
     
