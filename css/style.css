@@ -1,3 +1,12 @@
 #cargando {
     display: none;
 }
+
+.error { 
+    border: 1px solid red;
+    background-color: #ffe3e3;
+    color:red;
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 3px;
+}

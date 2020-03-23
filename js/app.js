@@ -8,6 +8,23 @@ function Saludar(marca, anio, tipo) {
 function Interfaz() {}
 
 
+//Mensaje que se imprime en el HTML
+Interfaz.prototype.mostrarError = function(Mensaje, tipo) {
+    const div = document.createElement('div');
+
+    if(tipo == 'error') {
+        div.classList = 'error';
+
+    } else {
+        div.classList = 'correcto';
+    }
+
+    div.innerHTML = `${Mensaje}`;
+    formulario.insertBefore(div, document.querySelector('.form-group'));
+
+}
+
+
 //EventListener
 const formulario = document.getElementById('cotizar-seguro');
 
@@ -16,24 +33,28 @@ formulario.addEventListener('submit', function(e) {
 
     //Leer dato seleccionado del select
     const marca = document.getElementById('marca');
-    const marcaSeleccionado = marca.options[marca.selectedIndex].value;
+    let marcaSeleccionado = marca.options[marca.selectedIndex].value;
+    if(marcaSeleccionado == 0)
+        marcaSeleccionado = '';
+
+    console.log('Prueba ' + marcaSeleccionado);
+    
 
     //leer el año selleccionado del select
     const anio = document.getElementById('anio');
     const anioSeleccionado = anio.options[anio.selectedIndex].value;
 
-    const tipo = document.querySelector('input[name="tipo"]:checked').value;
-
+    const tipo = document.querySelector('input[name="tipo"]:checked');
+    
     //Crear instancia de Interfaz
     const interfaz = new Interfaz();
 
     //Revisar que los campos no esten vacios
-    if(marcaSeleccionado === '' || anioSeleccionado === '' || tipo === '') {
-        console.log('Faltan Datos');
+    if(marcaSeleccionado === '' || anioSeleccionado === '' || tipo === null) {
+        interfaz.mostrarError('Faltan datos, resivar el formulario','error')
         
     } else {
-        console.log('Todo Correcto');
-        
+        interfaz.mostrarError('Todo correcto','correcto')
     }
     
 });
