@@ -14,10 +14,19 @@ const formulario = document.getElementById('cotizar-seguro');
 formulario.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    //Leer dato seleccionado del select
     const marca = document.getElementById('marca');
     const marcaSeleccionado = marca.options[marca.selectedIndex].value;
 
-    console.log(`Valor seleccionado: ${marcaSeleccionado}`);
+    //leer el año selleccionado del select
+    const anio = document.getElementById('anio');
+    const anioSeleccionado = anio.options[anio.selectedIndex].value;
+    console.log(`anio seleccionado: ${anioSeleccionado}`);
+
+    const tipo = document.querySelector('input[name="tipo"]:checked').value;
+
+    console.log(`Radio: ${tipo}`);
+    
 });
 
 
