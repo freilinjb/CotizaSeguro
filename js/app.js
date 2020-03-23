@@ -1,4 +1,4 @@
-function Saludar(marca, anio, tipo) {
+function Seguro(marca, anio, tipo) {
     this.marca = marca;
     this.anio =anio;
     this.tipo = tipo;
@@ -58,7 +58,13 @@ formulario.addEventListener('submit', function(e) {
         interfaz.mostrarError('Faltan datos, resivar el formulario','error')
         
     } else {
-        interfaz.mostrarError('Todo correcto','correcto')
+        //Instanciar seguro y mostrar Interfaz
+        // interfaz.mostrarError('Todo correcto','correcto'); 
+
+        const seguro = new Seguro(marcaSeleccionado,anioSeleccionado,tipo);
+
+        console.log(seguro);
+        
     }
     
 });
@@ -68,6 +74,7 @@ const max = new Date().getFullYear(),
       min  = max - 20; 
 
 const selectAnios = document.getElementById('anio');
+
 for(let i = max; i > min; i--) {
     let option = document.createElement('option');
     option.value = i; 
