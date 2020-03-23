@@ -14,8 +14,10 @@ const formulario = document.getElementById('cotizar-seguro');
 formulario.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    console.log('Precionado');
+    const marca = document.getElementById('marca');
+    const marcaSeleccionado = marca.options[marca.selectedIndex].value;
 
+    console.log(`Valor seleccionado: ${marcaSeleccionado}`);
 });
 
 
