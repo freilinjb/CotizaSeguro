@@ -4,6 +4,11 @@ function Seguro(marca, anio, tipo) {
     this.tipo = tipo;
 }
 
+Seguro.prototype.cotizarSeguro = function(Informacion) {
+    console.log(`Informacion ${this.anio}`);
+    
+}
+
 //Todo lo que se muestra
 function Interfaz() {}
 
@@ -39,10 +44,7 @@ formulario.addEventListener('submit', function(e) {
     const marca = document.getElementById('marca');
     let marcaSeleccionado = marca.options[marca.selectedIndex].value;
     if(marcaSeleccionado == 0)
-        marcaSeleccionado = '';
-
-    console.log('Prueba ' + marcaSeleccionado);
-    
+        marcaSeleccionado = '';    
 
     //leer el año selleccionado del select
     const anio = document.getElementById('anio');
@@ -64,8 +66,7 @@ formulario.addEventListener('submit', function(e) {
         const seguro = new Seguro(marcaSeleccionado,anioSeleccionado,tipo);
 
         //Cotizar el seguro
-        const cantidad = seguro.cotiza
-
+        const cantidad = seguro.cotizarSeguro(seguro);
         
     }
     
