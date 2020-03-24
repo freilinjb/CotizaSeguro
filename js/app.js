@@ -1,10 +1,12 @@
 function Seguro(marca, anio, tipo) {
     this.marca = marca;
-    this.anio =anio;
+    this.anio = anio;
     this.tipo = tipo;
 }
 
 Seguro.prototype.cotizarSeguro = function(Informacion) {
+    console.log(`Informacion ${this.marca}`);
+    console.log(`Informacion ${this.tipo}`);
     console.log(`Informacion ${this.anio}`);
     
 }
@@ -63,8 +65,9 @@ formulario.addEventListener('submit', function(e) {
         //Instanciar seguro y mostrar Interfaz
         // interfaz.mostrarError('Todo correcto','correcto'); 
 
-        const seguro = new Seguro(marcaSeleccionado,anioSeleccionado,tipo);
-
+        const seguro = new Seguro(marcaSeleccionado,anioSeleccionado,tipo.value);
+        console.log(tipo);
+        
         //Cotizar el seguro
         const cantidad = seguro.cotizarSeguro(seguro);
         
