@@ -75,7 +75,19 @@ Interfaz.prototype.mostrarResultado = function(seguro, total) {
      document.getElementById('resultado');
      let marca;
 
-     console.log(seguro);
+     switch(seguro.marca) {
+        case '1': marca = 'Americano';
+            break;
+
+        case '2': marca = 'Asiatico';
+            break;
+        
+        case '3': marca = 'Europeo';
+            break;
+     }
+
+     console.log(marca);
+     
      
 }
 
