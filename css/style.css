@@ -10,3 +10,7 @@
     margin-bottom: 5px;
     padding: 3px;
 }
+
+.spinCargando {
+    display: block;
+}

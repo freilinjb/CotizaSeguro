@@ -71,6 +71,14 @@ Interfaz.prototype.mostrarError = function(Mensaje, tipo) {
 
 }
 
+Interfaz.prototype.mostrarResultado = function(seguro, total) {
+     document.getElementById('resultado');
+     let marca;
+
+     console.log(seguro);
+     
+}
+
 
 //EventListener
 const formulario = document.getElementById('cotizar-seguro');
@@ -105,6 +113,8 @@ formulario.addEventListener('submit', function(e) {
         
         //Cotizar el seguro
         const cantidad = seguro.cotizarSeguro(seguro);
+
+        interfaz.mostrarResultado(seguro, cantidad);
         
     }
     
