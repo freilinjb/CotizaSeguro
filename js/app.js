@@ -42,8 +42,9 @@ Seguro.prototype.cotizarSeguro = function(Informacion) {
 
 
     console.log(`Direfencia: ${diferencia}`);
+ 
 
-    console.log(`Cantidad: ${cantidad}`);
+    return cantidad;
     
 }
 
@@ -72,7 +73,8 @@ Interfaz.prototype.mostrarError = function(Mensaje, tipo) {
 }
 
 Interfaz.prototype.mostrarResultado = function(seguro, total) {
-     document.getElementById('resultado');
+     const resultado = document.getElementById('resultado');
+
      let marca;
 
      switch(seguro.marca) {
@@ -85,10 +87,18 @@ Interfaz.prototype.mostrarResultado = function(seguro, total) {
         case '3': marca = 'Europeo';
             break;
      }
-
-     console.log(marca);
      
-     
+     const div = document.createElement('div');
+     div.innerHTML = `
+        <strong>Tu Resumen:</strong> <br>
+        <strong>Marca:</strong> ${marca} <br>
+        <strong>Seguro:</strong> ${seguro.anio} <br>
+        <strong>Tipo:</strong> ${seguro.tipo} <br>
+        <strong>Tipo:</strong> $ ${total} <br>
+     `;
+     resultado.innerHTML = '';
+     resultado.appendChild(div);
+     resultado.style.display = "block"
 }
 
 
@@ -120,6 +130,9 @@ formulario.addEventListener('submit', function(e) {
     } else {
         //Instanciar seguro y mostrar Interfaz
         // interfaz.mostrarError('Todo correcto','correcto'); 
+
+
+        
 
         const seguro = new Seguro(marcaSeleccionado,anioSeleccionado,tipo.value);
         
