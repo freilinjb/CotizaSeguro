@@ -5,9 +5,32 @@ function Seguro(marca, anio, tipo) {
 }
 
 Seguro.prototype.cotizarSeguro = function(Informacion) {
-    console.log(`Informacion ${this.marca}`);
-    console.log(`Informacion ${this.tipo}`);
-    console.log(`Informacion ${this.anio}`);
+    /*
+        1 = americano 1.15
+        2 = asiatico = 1.05
+        3 = europeo = 1.35
+    */
+    let cantidad;
+    const base = 2000;
+
+    switch(this.marca) {
+        case '1':  cantidad = base * 1.15;
+            break;
+        case '2':  cantidad = base * 1.05;
+            break;
+        case '3':  cantidad = base * 1.35;
+            break;
+    }
+
+    //Leeer el año
+    const diferencia = new Date().getFullYear() - this.anio;
+    //Cada año de diferencia hay que reducir 3% el valor del seguro
+
+    cantidad -= ((diferencia * 3) * cantidad)/100;
+
+    console.log(`Direfencia: ${diferencia}`);
+
+    console.log(`Cantidad: ${cantidad}`);
     
 }
 
@@ -66,7 +89,6 @@ formulario.addEventListener('submit', function(e) {
         // interfaz.mostrarError('Todo correcto','correcto'); 
 
         const seguro = new Seguro(marcaSeleccionado,anioSeleccionado,tipo.value);
-        console.log(tipo);
         
         //Cotizar el seguro
         const cantidad = seguro.cotizarSeguro(seguro);
