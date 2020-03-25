@@ -88,17 +88,27 @@ Interfaz.prototype.mostrarResultado = function(seguro, total) {
             break;
      }
      
-     const div = document.createElement('div');
-     div.innerHTML = `
-        <strong>Tu Resumen:</strong> <br>
-        <strong>Marca:</strong> ${marca} <br>
-        <strong>Seguro:</strong> ${seguro.anio} <br>
-        <strong>Tipo:</strong> ${seguro.tipo} <br>
-        <strong>Tipo:</strong> $ ${total} <br>
-     `;
-     resultado.innerHTML = '';
-     resultado.appendChild(div);
-     resultado.style.display = "block"
+
+     setTimeout(function() {
+        const div = document.createElement('div');
+        div.innerHTML = `
+           <p class = 'header text-center bg-info text-white'><strong>Tu Resumen:</strong> <br></p>
+           <strong>Marca:</strong> ${marca} <br>
+           <strong>Seguro:</strong> ${seguro.anio} <br>
+           <strong>Tipo:</strong> ${seguro.tipo} <br>
+           <strong>Tipo:</strong> $ ${total} <br>
+        `;
+       //  resultado.innerHTML = '';
+        resultado.appendChild(div);
+        resultado.style.display = "block";
+        const spinner = document.getElementById('spinCargando');
+
+        if(spinner != null) {
+            spinner.remove();
+        }
+        spinner.style.display = "none";
+     },1000);
+
 }
 
 
@@ -132,6 +142,12 @@ formulario.addEventListener('submit', function(e) {
         // interfaz.mostrarError('Todo correcto','correcto'); 
 
 
+        //Interfaz imprimiendo un error
+        const resultado = document.querySelector('#resultado div');
+        if(resultado != null){
+            resultado.remove();
+        }
+
         
 
         const seguro = new Seguro(marcaSeleccionado,anioSeleccionado,tipo.value);
@@ -140,6 +156,8 @@ formulario.addEventListener('submit', function(e) {
         const cantidad = seguro.cotizarSeguro(seguro);
 
         interfaz.mostrarResultado(seguro, cantidad);
+
+
         
     }
     
