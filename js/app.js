@@ -88,26 +88,17 @@ Interfaz.prototype.mostrarResultado = function(seguro, total) {
             break;
      }
      
-
-     setTimeout(function() {
-        const div = document.createElement('div');
-        div.innerHTML = `
-           <p class = 'header text-center bg-info text-white'><strong>Tu Resumen:</strong> <br></p>
-           <strong>Marca:</strong> ${marca} <br>
-           <strong>Seguro:</strong> ${seguro.anio} <br>
-           <strong>Tipo:</strong> ${seguro.tipo} <br>
-           <strong>Tipo:</strong> $ ${total} <br>
-        `;
-       //  resultado.innerHTML = '';
-        resultado.appendChild(div);
-        resultado.style.display = "block";
-        const spinner = document.getElementById('spinCargando');
-
-        if(spinner != null) {
-            spinner.remove();
-        }
-        spinner.style.display = "none";
-     },1000);
+     const div = document.createElement('div');
+     div.innerHTML = `
+        <p class = 'header text-center bg-info text-white'><strong>Tu Resumen:</strong> <br></p>
+        <strong>Marca:</strong> ${marca} <br>
+        <strong>Seguro:</strong> ${seguro.anio} <br>
+        <strong>Tipo:</strong> ${seguro.tipo} <br>
+        <strong>Tipo:</strong> $ ${total} <br>
+     `;
+    //  resultado.innerHTML = '';
+     resultado.appendChild(div);
+     resultado.style.display = "block";
 
 }
 
