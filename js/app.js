@@ -28,6 +28,19 @@ Seguro.prototype.cotizarSeguro = function(Informacion) {
 
     cantidad -= ((diferencia * 3) * cantidad)/100;
 
+    /*
+        si el seguro es básico se multiplica por 30% más
+        si el seguro es completo 50% mas
+    */
+
+
+    if(this.tipo == 'basico') {
+        cantidad *= 1.30;
+    } else if(this.tipo == 'completo') {
+        cantidad *= 1.50;
+    }
+
+
     console.log(`Direfencia: ${diferencia}`);
 
     console.log(`Cantidad: ${cantidad}`);
